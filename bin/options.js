@@ -95,6 +95,12 @@ const OPTIONS = {
     choices: ['asc', 'desc'],
     'default': 'asc'
   },
+  'min-year': {
+    group: 'Album options:',
+    description: 'Ignore Media Older Than',
+    // type: 'number',
+    'default': 1900
+  },
 
   // ------------------------------------
   // Website options
@@ -242,6 +248,7 @@ exports.get = (args) => {
     albumsOutputFolder: opts['albums-output-folder'],
     usageStats: opts['usage-stats'],
     log: opts['log'],
+    minYear: opts['min-year'],
     dryRun: opts['dry-run']
   }
 }

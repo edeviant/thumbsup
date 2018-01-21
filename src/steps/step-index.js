@@ -42,7 +42,7 @@ exports.run = function (opts, callback) {
       const meta = new Metadata(file.metadata, picasa || {})
       const model = new File(file.metadata, meta, opts)
       // only include valid photos and videos (i.e. exiftool recognised the format)
-      if (model.type !== 'unknown') {
+      if (model.type !== 'unknown' && new Date(model.date).getFullYear() > opts.minYear) {
         files.push(model)
       }
     })
